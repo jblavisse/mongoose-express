@@ -1,12 +1,14 @@
 const express = require('express');
 const mongoose = require('mongoose');
 
+mongoose.set('useFindAndModify', false);
+
 const usersRouter = require('./routes/usersRouter.js');
 const cardsRouter = require('./routes/cardsRouter.js');
 
 const app = express();
 app.use(express.json());
-app.use(express.urlencoded());
+app.use(express.urlencoded({extended: true}));
 
 const port = 3000;
 
