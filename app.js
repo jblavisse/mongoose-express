@@ -14,9 +14,11 @@ mongoose.connect('mongodb://localhost:27017/facebook',{
 });
 
 const db = mongoose.connection;
+
 db.on('error',() => console.log('Erreur lors de la connexion'));
 db.once('open',() => {
     console.log("Base de données dispo!");
+    
     app.listen(port, () => {
         console.log(`App listening at http://localhost:${port}`);
     })
