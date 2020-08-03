@@ -5,6 +5,9 @@ const usersRouter = require('./routes/usersRouter.js');
 const cardsRouter = require('./routes/cardsRouter.js');
 
 const app = express();
+app.use(express.json());
+app.use(express.urlencoded());
+
 const port = 3000;
 
 app.use('/users', usersRouter);

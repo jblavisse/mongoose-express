@@ -10,4 +10,13 @@ router.get('/', (req, res) => {
     })
 })
 
+router.post('/', (req,res) => {
+    let user = new User(req.body);
+    user.save((err) => {
+         if (err) res.status(400).send(err);
+         else res.send(user);
+     })
+})
+
+
 module.exports = router;
